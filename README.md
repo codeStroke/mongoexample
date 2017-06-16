@@ -32,7 +32,7 @@ db.copyDatabase(fromdb, todb)
 ```
 db.copyDatabase(fromdb, todb, fromhost, username, password, mechanism)
 ```
-### Update a field to empty array in all documents for a collection
+### Update a field to empty an array in all documents for a collection
 ```
 db.collectionName.update({}, {$set :{fieldName:[]}}, {multi:true})
 ```
