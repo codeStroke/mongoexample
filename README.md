@@ -18,6 +18,7 @@ P.S: All these commands are tested on `MongoDB shell version v3.4.2`.
    * [Insert a single document](#insert-a-single-document)
    * [Insert multiple documents](#insert-multiple-documents)
    * [Inserts a document or documents into a collection](#inserts-a-document-or-documents-into-a-collection)
+   * [Update a field to an empty array in all documents](#update-a-field-to-an-empty-array-in-all-documents)
    
    
 <!--------------------- MongoDB Package Component --------------------------->
@@ -58,7 +59,7 @@ db.mycollection.insertOne(
 db.mycollection.insertMany([
    { bookName: "Modern science", price: 500.34, tags: ["science"], size: { h: 28, w: 35.5, uom: "cm" } },
    { bookName: "Computer Design", price: 300, tags: ["computer"], size: { h: 28, w: 35.5, uom: "cm" } },
-  ])
+  )]
 ```
 
 ### Inserts a document or documents into a collection
@@ -74,3 +75,11 @@ db.mycollection.insert(
    { bookName: "Indian History", price: 100, tags: ["History"], size: { h: 28, w: 35.5, uom: "cm" } }
    )
 ```
+
+### Update a field to an empty array in all documents
+
+```bash
+db.mycollection.update({}, {$set :{fieldName:[]}}, {multi:true})
+  ])
+```
+
