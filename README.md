@@ -17,6 +17,7 @@ P.S: All these commands are tested on `MongoDB shell version v3.4.2`.
    If an inserted document omits the _id field, the MongoDB driver automatically generates an ObjectId for the _id field.
    * [Insert a single document](#insert-a-single-document)
    * [Insert multiple documents](#insert-multiple-documents)
+   * [Inserts a document or documents into a collection](#inserts-a-document-or-documents-into-a-collection)
    
    
 <!--------------------- MongoDB Package Component --------------------------->
@@ -57,5 +58,19 @@ db.mycollection.insertOne(
 db.mycollection.insertMany([
    { bookName: "Modern science", price: 500.34, tags: ["science"], size: { h: 28, w: 35.5, uom: "cm" } },
    { bookName: "Computer Design", price: 300, tags: ["computer"], size: { h: 28, w: 35.5, uom: "cm" } },
-  )]
+  ])
+```
+
+### Inserts a document or documents into a collection
+```bash
+db.mycollection.insert([
+   { bookName: "Modern science", price: 500.34, tags: ["science"], size: { h: 28, w: 35.5, uom: "cm" } },
+   { bookName: "Computer Design", price: 300, tags: ["computer"], size: { h: 28, w: 35.5, uom: "cm" } },
+  ])
+    
+    
+  
+db.mycollection.insert(
+   { bookName: "Indian History", price: 100, tags: ["History"], size: { h: 28, w: 35.5, uom: "cm" } }
+   )
 ```
