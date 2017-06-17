@@ -59,7 +59,9 @@ db.mycollection.insertMany([
    { bookName: "Computer Design", price: 300, tags: ["computer"], size: { h: 28, w: 35.5, uom: "cm" } },
   )]
 ```
+
 ### Update a field to an empty array in all documents
-```
-db.collectionName.update({}, {$set :{fieldName:[]}}, {multi:true})
+
+```bash
+db.mycollection.update({}, {$set :{fieldName:[]}}, {multi:true})
 ```
