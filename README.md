@@ -29,7 +29,7 @@ mongoimport --db <databaseName> --collection <collectionName> --drop --file <jso
 mongoimport --db <databaseName> --collection <collectionName> --drop --file <jsonFile>.json --jsonArray
 ```
 <!----------- Mongo Shell----------------------------------------------------->
-## Show list of Databases
+### Show list of Databases
 ```bash
 show dbs
 ```
