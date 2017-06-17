@@ -19,6 +19,7 @@ P.S: All these commands are tested on `MongoDB shell version v3.4.2`.
    * [Insert multiple documents](#insert-multiple-documents)
    * [Inserts a document or documents into a collection](#inserts-a-document-or-documents-into-a-collection)
    * [Update a field to an empty array in all documents](#update-a-field-to-an-empty-array-in-all-documents)
+   * [Insert a new field into a collection](#insert-a-new-field-into-a-collection)
    
    
 <!--------------------- MongoDB Package Component --------------------------->
@@ -79,7 +80,17 @@ db.mycollection.insert(
 ### Update a field to an empty array in all documents
 
 ```bash
-db.mycollection.update({}, {$set :{fieldName:[]}}, {multi:true})
-  ])
+db.mycollection.update(
+{}, 
+{$set : {fieldName:[]} }, {multi:true}
+)
 ```
 
+### Insert a new field into a collection
+
+```bash
+db.mycollection.updateMany(
+{}, 
+{$set :{"newFieldName":""}}
+)
+```
