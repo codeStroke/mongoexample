@@ -17,6 +17,8 @@ P.S: All these commands are tested on `MongoDB shell version v3.4.2`.
    If an inserted document omits the _id field, the MongoDB driver automatically generates an ObjectId for the _id field.
    * [Insert a single document](#insert-a-single-document)
    * [Insert multiple documents](#insert-multiple-documents)
+   * [Inserts a document or documents into a collection](#inserts-a-document-or-documents-into-a-collection)
+   * [Update a field to an empty array in all documents](#update-a-field-to-an-empty-array-in-all-documents)
    
    
 <!--------------------- MongoDB Package Component --------------------------->
@@ -60,8 +62,24 @@ db.mycollection.insertMany([
   )]
 ```
 
+### Inserts a document or documents into a collection
+```bash
+db.mycollection.insert([
+   { bookName: "Modern science", price: 500.34, tags: ["science"], size: { h: 28, w: 35.5, uom: "cm" } },
+   { bookName: "Computer Design", price: 300, tags: ["computer"], size: { h: 28, w: 35.5, uom: "cm" } },
+  ])
+    
+    
+  
+db.mycollection.insert(
+   { bookName: "Indian History", price: 100, tags: ["History"], size: { h: 28, w: 35.5, uom: "cm" } }
+   )
+```
+
 ### Update a field to an empty array in all documents
 
 ```bash
 db.mycollection.update({}, {$set :{fieldName:[]}}, {multi:true})
+  ])
 ```
+
