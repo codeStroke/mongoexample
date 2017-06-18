@@ -20,6 +20,7 @@ P.S: All these commands are tested on `MongoDB shell version v3.4.2`.
    * [Inserts a document or documents into a collection](#inserts-a-document-or-documents-into-a-collection)
    * [Update a field to an empty array in all documents](#update-a-field-to-an-empty-array-in-all-documents)
    * [Insert a new field into a collection](#insert-a-new-field-into-a-collection)
+   * [Find value inside array](#find-value-inside-array)
    
    
 <!--------------------- MongoDB Package Component --------------------------->
@@ -92,5 +93,19 @@ db.mycollection.update(
 db.mycollection.updateMany(
 {}, 
 {$set :{"newFieldName":""}}
+)
+```
+
+
+### Find value inside array
+
+```bash
+
+field : studentMarks[{rollNo:1,marks:10},{rollNo:2,marks:5},{rollNo:3,marks:10}]
+
+//query to documents where students got 10 marks
+
+db.OpCodeSemycollectionrvice.find( 
+{ "studentMarks": { $elemMatch: { "marks": 10 } } } 
 )
 ```
