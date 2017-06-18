@@ -105,7 +105,7 @@ db.mycollection.updateMany(
 
 field : studentMarks[{rollNo:1,marks:10},{rollNo:2,marks:5},{rollNo:3,marks:10}]
 
-//query to documents where students got 10 marks
+//query to get documents where students got 10 marks
 
 db.mycollection.find( 
 { "studentMarks": { $elemMatch: { "marks": 10 } } } 
@@ -117,6 +117,8 @@ db.mycollection.find(
 
 ```bash
 
+//query to get documents where name is empty
+
 db.mycollection.find( 
 { "name": ""} 
 )
@@ -126,6 +128,8 @@ db.mycollection.find(
 ### Find documents where field value is non empty
 
 ```bash
+
+//query to get documents where name is non empty
 
 db.mycollection.find( 
 { "name": {$ne : ""}} 
