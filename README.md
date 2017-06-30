@@ -20,6 +20,9 @@ P.S: All these commands are tested on `MongoDB shell version v3.4.2`.
    * [Inserts a document or documents into a collection](#inserts-a-document-or-documents-into-a-collection)
    * [Update a field to an empty array in all documents](#update-a-field-to-an-empty-array-in-all-documents)
    * [Insert a new field into a collection](#insert-a-new-field-into-a-collection)
+   * [Find value inside array](#find-value-inside-array)
+   * [Find documents where field value is empty](#find-documents-where-field-value-is-empty)
+   * [Find documents where field value is non empty](#find-documents-where-field-value-is-non-empty)
    
    
 <!--------------------- MongoDB Package Component --------------------------->
@@ -93,4 +96,43 @@ db.mycollection.updateMany(
 {}, 
 {$set :{"newFieldName":""}}
 )
+```
+
+
+### Find value inside array
+
+```bash
+
+field : studentMarks[{rollNo:1,marks:10},{rollNo:2,marks:5},{rollNo:3,marks:10}]
+
+//query to get documents where students got 10 marks
+
+db.mycollection.find( 
+{ "studentMarks": { $elemMatch: { "marks": 10 } } } 
+)
+```
+
+
+### Find documents where field value is empty
+
+```bash
+
+//query to get documents where name is empty
+
+db.mycollection.find( 
+{ "name": ""} 
+)
+
+```
+
+### Find documents where field value is non empty
+
+```bash
+
+//query to get documents where name is non empty
+
+db.mycollection.find( 
+{ "name": {$ne : ""}} 
+)
+
 ```
